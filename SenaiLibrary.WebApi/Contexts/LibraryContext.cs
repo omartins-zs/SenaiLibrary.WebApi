@@ -7,7 +7,7 @@ namespace SenaiLibrary.WebApi.Contexts
     public class LibraryContext : DbContext
     {
         public LibraryContext()
-        { 
+        {
 
         }
         public LibraryContext(DbContextOptions<LibraryContext> options) : base(options)
@@ -20,8 +20,12 @@ namespace SenaiLibrary.WebApi.Contexts
             if (!optionsBuilder.IsConfigured)
             {
                 // cada provedor tem sua sintaxe para especificação
-                optionsBuilder.UseSqlServer(("DataSource = DESKTOP-7JNQVD9t\\SQLEXPRESS; initial catalog = Chapter; Integrated Security = true"
-    }
+                // PC
+                // optionsBuilder.UseSqlServer(("DataSource = DESKTOP-7JNQVD9t\\SQLEXPRESS; initial catalog = Chapter; Integrated Security = true"
+
+                // Notebook
+                optionsBuilder.UseSqlServer("Data Source = DESKTOP-98U2MDO\\SQLEXPRESS; initial catalog = Chapter; Integrated Security = true");
+            }
         }
         //dbset representa as entidades que serão utilizadas nas operações de leitura, criação, atualização e deleção
         public DbSet<Jogo> Jogos { get; set; }
