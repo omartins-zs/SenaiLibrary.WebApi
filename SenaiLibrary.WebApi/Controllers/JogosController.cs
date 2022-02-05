@@ -22,6 +22,18 @@ namespace SenaiLibrary.WebApi.Controllers
 
     public class JogosController : ControllerBase
     {
-        
+        private readonly JogoRepository _jogoRepository;
+        public JogosController(JogoRepository jogoRepository)
+        {
+            _jogoRepository = jogoRepository;
+        }
+        // GET /api/jogos
+        [HttpGet]
+        public IActionResult Listar()
+        {
+            // retorna no corpo da resposta, a lista de livros
+            // retorna o status Ok - 200, sucesso
+            return Ok(_jogoRepository.Listar());
+        }
     }
 }
