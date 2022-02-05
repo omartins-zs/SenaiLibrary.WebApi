@@ -24,7 +24,7 @@ namespace SenaiLibrary.WebApi.Contexts
                 // optionsBuilder.UseSqlServer(("DataSource = DESKTOP-7JNQVD9t\\SQLEXPRESS; initial catalog = Chapter; Integrated Security = true"
 
                 // Notebook
-                optionsBuilder.UseSqlServer("Data Source = DESKTOP-98U2MDO\\SQLEXPRESS; initial catalog = Chapter; Integrated Security = true");
+                optionsBuilder.UseSqlServer("Data Source = DESKTOP-98U2MDO\\SQLEXPRESS; initial catalog = SenaiLibraryDB; Integrated Security = true");
             }
         }
         //dbset representa as entidades que serão utilizadas nas operações de leitura, criação, atualização e deleção
