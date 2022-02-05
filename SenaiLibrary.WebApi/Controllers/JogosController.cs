@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SenaiLibrary.WebApi.Models;
 using SenaiLibrary.WebApi.Repositories;
 
 namespace SenaiLibrary.WebApi.Controllers
@@ -14,7 +15,7 @@ namespace SenaiLibrary.WebApi.Controllers
 
     // Define que a rota de uma requisição será no formato dominio api nomeController
     // ex : http://localhost:5000/api/livros
-    [Route("api/controller")]
+    [Route("api/[controller]")]
 
     // atributo para habilitar comportamentos especificos de API, como status, retorno
     [ApiController]
@@ -34,6 +35,16 @@ namespace SenaiLibrary.WebApi.Controllers
             // retorna no corpo da resposta, a lista de livros
             // retorna o status Ok - 200, sucesso
             return Ok(_jogoRepository.Listar());
+        }
+
+        // POST /api/jogos
+        [HttpPost]
+        // recebe a informacao do livro que deseja salvar do corpo da requisição
+        public IActionResult Cadastrar(Jogo jogo)
+        {
+            _jogoRepository.Cadastrar(jogo);
+            // o status code para um cadastro, pode ser utilizado o 201 ou 200 Ok
+            return StatusCode(201);
         }
     }
 }
