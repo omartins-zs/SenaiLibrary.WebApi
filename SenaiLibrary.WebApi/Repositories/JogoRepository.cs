@@ -22,5 +22,16 @@ namespace SenaiLibrary.WebApi.Repositories
             // SELECT Id, TituloDoJogo, LojaDisponivel , Disponivel FROM Livros;
             return _context.Jogos.ToList();
         }
+
+        // Cadastrar um Jogo no banco de dados
+        public
+        void Cadastrar(Jogo jogo)
+        {
+            // INSERT INTO Jogos VALUES([TituloDoJogo], [LojaDisponivel], [Disponivel])
+            // Adiciona o novo Jogo
+            _context.Jogos.Add(jogo);
+            // Salva (persistir) as informações para serem gravadas no banco de dados
+            _context.SaveChanges();
+        }
     }
 }
