@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SenaiLibrary.WebApi.Contexts;
+using SenaiLibrary.WebApi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,14 @@ namespace SenaiLibrary.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Adiciona os servicos necessarios para
+            services.AddControllers();
+
             // Se não existir uma instância na memória da aplicação, cria um novo Context
             services.AddScoped<LibraryContext, LibraryContext>();
+
+            // A cada solicitaçao uma nova instanciae criada
+            services.AddTransient<JogoRepository, JogoRepository>();
 
             services.AddRazorPages();
         }
@@ -46,6 +53,12 @@ namespace SenaiLibrary.WebApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Mapear os Controllers
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
             app.UseEndpoints(endpoints =>
             {
