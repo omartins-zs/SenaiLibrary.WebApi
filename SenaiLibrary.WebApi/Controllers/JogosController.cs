@@ -46,5 +46,24 @@ namespace SenaiLibrary.WebApi.Controllers
             // o status code para um cadastro, pode ser utilizado o 201 ou 200 Ok
             return StatusCode(201);
         }
+
+        // GET /api/livrosjogos/{id}
+        [HttpGet("{id}")] // busca um jogo a partir do id passado na requisição GET
+
+        public IActionResult BuscarPorId(int id)
+        {
+            // busca o jogo por id no banco
+            Jogo jogo = _jogoRepository.BuscarPorId(id);
+            // se o jogo não for encontrado, retorna uma status
+            // de não encontrado, 404 (NotFound).
+            if
+            (jogo == null)
+            {
+                return NotFound();
+            }
+            // caso tenha sido encontrado, retorna o status
+            // de sucesso com a informação sobre o livro
+            return Ok(jogo);
+        }
     }
 }
