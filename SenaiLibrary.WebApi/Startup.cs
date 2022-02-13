@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using SenaiLibrary.WebApi.Contexts;
 using SenaiLibrary.WebApi.Repositories;
 using System;
@@ -26,6 +27,37 @@ namespace SenaiLibrary.WebApi
         {
             // Adiciona os servicos necessarios para
             services.AddControllers();
+
+            services
+              // Define a forma de autenticacao
+              .AddAuthentication(options =>
+               {
+                   options.DefaultAuthenticateScheme = "JwtBearer";
+                   options.DefaultChallengeScheme = "JwtBearer";
+               })
+                // Define os parametros de validacaoo do token
+                .AddJwtBearer("JwtBearer", options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        // Valida quem está solicitando
+                        ValidateIssuer = true,
+                        // Valida quem está recebendo
+                        ValidateAudience = true,
+                        // Define se o tempo de expiracao sera validado
+                        ValidateLifetime = true,
+                        // criptografia e valida~ção da chave de autenticacao
+                        IssuerSigningKey = new
+                    SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("SenaiLibrary-chave-autenticacao")),
+                        // Valida o tempo de expiracao do token
+                        ClockSkew = TimeSpan.FromMinutes(30),
+                        // Nome do issuer, de onde está vindo
+                        ValidIssuer = "SenaiLibrary.WebApi",
+                        // Nome do audience, para onde está indo
+                        ValidAudience = "SenaiLibrary.WebApi"
+                    };
+                });
+
 
             // Se não existir uma instância na memória da aplicação, cria um novo Context
             services.AddScoped<LibraryContext, LibraryContext>();
