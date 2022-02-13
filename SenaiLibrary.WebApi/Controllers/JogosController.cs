@@ -65,5 +65,18 @@ namespace SenaiLibrary.WebApi.Controllers
             // de sucesso com a informação sobre o livro
             return Ok(jogo);
         }
+
+        // PUT /api/jogos/{id}
+        [HttpPut("{ id}")] // o id passado no PUT /api/jogos/1
+        // recebe a informacao do livro que deseja
+        // atualizar no corpo da requisição
+        public IActionResult Atualizar(int id, Jogo jogo)
+        {
+            // atualizar as informações de um jogo
+            // no corpo da requisição, corresponde as novas informações do jogo
+            // na solicitação, o id do jogo a ser atualizado
+            _jogoRepository.Atualizar(id, jogo);
+            return StatusCode(204);
+        }
     }
 }
