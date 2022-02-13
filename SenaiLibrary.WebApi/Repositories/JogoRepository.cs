@@ -65,13 +65,14 @@ namespace SenaiLibrary.WebApi.Repositories
             _context.SaveChanges();
         }
 
-        /// summary
-        /// Deleta um livro existente a partir do id
+
+        /// <summary>
+        /// Deleta um Jogo existente a partir do id
         /// </summary>
-        /// <param name id id do estúdio que será deletado </param>
+        /// <param name="id">id do jogo que será deletado</param>
         public void Deletar(int id)
         {
-            // Busca um jogo através do seu id
+            // Busca um livro através do seu id
             Jogo jogoBuscado = _context.Jogos.Find(id);
             // Remove o livro que foi buscado
             _context.Jogos.Remove(jogoBuscado);
