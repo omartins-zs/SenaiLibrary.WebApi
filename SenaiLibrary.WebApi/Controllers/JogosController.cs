@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SenaiLibrary.WebApi.Models;
 using SenaiLibrary.WebApi.Repositories;
+using System;
 
 namespace SenaiLibrary.WebApi.Controllers
 {
@@ -77,6 +78,21 @@ namespace SenaiLibrary.WebApi.Controllers
             // na solicitação, o id do jogo a ser atualizado
             _jogoRepository.Atualizar(id, jogo);
             return StatusCode(204);
+        }
+
+        // DELETE /api/jogos/{id}
+        [HttpDelete("{id}")]  // o id passado no DELETE api/jogos/1
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _jogoRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }
