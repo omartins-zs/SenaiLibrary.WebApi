@@ -1,0 +1,22 @@
+Anotação Trello
+
+
+Passo a Passo Para Criar Quadro :
+
+1.Na Pagina Inicial 
+
+2.Clickar em "Criar novo quadro"
+
+3.Ir em "Começar com um modelo"
+
+4.Clickar em "Explorar templates"
+
+5.Na barra lateral acessar "Gerenciamento de projetos"
+
+6.Procurar "Modelo de Projeto(SCRUM)"
+
+7.Ir em "Usar modelo"
+
+8.Renomear Quadro
+
+9.Clickar em Criar
