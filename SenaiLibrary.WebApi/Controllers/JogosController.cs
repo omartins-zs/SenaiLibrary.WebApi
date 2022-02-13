@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SenaiLibrary.WebApi.Models;
 using SenaiLibrary.WebApi.Repositories;
@@ -88,6 +89,7 @@ namespace SenaiLibrary.WebApi.Controllers
         }
 
         // PUT /api/jogos/{id}
+        [AllowAnonymous]
         [HttpPut("{ id}")] // o id passado no PUT /api/jogos/1
         // recebe a informacao do jogo que deseja
         // atualizar no corpo da requisição
@@ -108,6 +110,7 @@ namespace SenaiLibrary.WebApi.Controllers
         }
 
         // DELETE /api/jogos/{id}
+        [Authorize]
         [HttpDelete("{id}")]  // o id passado no DELETE api/jogos/1
         public IActionResult Deletar(int id)
         {
