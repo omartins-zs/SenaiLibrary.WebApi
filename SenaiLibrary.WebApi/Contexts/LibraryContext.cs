@@ -30,6 +30,8 @@ namespace SenaiLibrary.WebApi.Contexts
         //dbset representa as entidades que serão utilizadas nas operações de leitura, criação, atualização e deleção
         public DbSet<Jogo> Jogos { get; set; }
 
+        public DbSet<Jogador> Jogadores { get; set; }
+
     }
 
 }
