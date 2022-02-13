@@ -41,5 +41,29 @@ namespace SenaiLibrary.WebApi.Repositories
             // FROM Jogos WHERE Id = $idRecebido
             return _context.Jogos.Find(id);
         }
+
+        // atualizar as informacoes de um jogo, a partir da busca de jogo por id
+        public void Atualizar(int id, Jogo jogo)
+        {
+            // Busca o jogo por id
+            Jogo livroBuscado = _context.Jogos.Find(id);
+            // caso encontre o livro, atualiza as informacoes
+            if
+            (livroBuscado != null)
+            {
+                // Atribui os novos valores
+                livroBuscado.TituloDoJogo = jogo.TituloDoJogo;
+                livroBuscado.LojaDisponivel = jogo.LojaDisponivel;
+                livroBuscado.Disponivel = jogo.Disponivel;
+            }
+            // UPDATE Jogos SET TituloDoJogo = @TituloDoJogo,
+            // LojaDisponivel = @LojaDisponivel,
+            // Disponivel = @Disponivel
+            // WHERE Id = @IdRecebido;
+            // Adiciona o jogo atualizado
+            _context.Jogos.Update(livroBuscado);
+            // Salva (persistir) as informações para serem gravadas no banco de dados
+            _context.SaveChanges();
+        }
     }
 }
