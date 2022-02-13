@@ -84,6 +84,10 @@ namespace SenaiLibrary.WebApi
 
             app.UseRouting();
 
+            // Habilita a autenticacao
+            app.UseAuthentication();
+
+            // Habilita a autorizacao
             app.UseAuthorization();
 
             // Mapear os Controllers
