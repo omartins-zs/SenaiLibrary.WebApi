@@ -46,23 +46,36 @@ namespace SenaiLibrary.WebApi.Repositories
         public void Atualizar(int id, Jogo jogo)
         {
             // Busca o jogo por id
-            Jogo livroBuscado = _context.Jogos.Find(id);
-            // caso encontre o livro, atualiza as informacoes
-            if
-            (livroBuscado != null)
+            Jogo jogoBuscado = _context.Jogos.Find(id);
+            // caso encontre o jogo, atualiza as informacoes
+            if (jogoBuscado != null)
             {
                 // Atribui os novos valores
-                livroBuscado.TituloDoJogo = jogo.TituloDoJogo;
-                livroBuscado.LojaDisponivel = jogo.LojaDisponivel;
-                livroBuscado.Disponivel = jogo.Disponivel;
+                jogoBuscado.TituloDoJogo = jogo.TituloDoJogo;
+                jogoBuscado.LojaDisponivel = jogo.LojaDisponivel;
+                jogoBuscado.Disponivel = jogo.Disponivel;
             }
             // UPDATE Jogos SET TituloDoJogo = @TituloDoJogo,
             // LojaDisponivel = @LojaDisponivel,
             // Disponivel = @Disponivel
             // WHERE Id = @IdRecebido;
             // Adiciona o jogo atualizado
-            _context.Jogos.Update(livroBuscado);
+            _context.Jogos.Update(jogoBuscado);
             // Salva (persistir) as informações para serem gravadas no banco de dados
+            _context.SaveChanges();
+        }
+
+        /// summary
+        /// Deleta um livro existente a partir do id
+        /// </summary>
+        /// <param name id id do estúdio que será deletado </param>
+        public void Deletar(int id)
+        {
+            // Busca um jogo através do seu id
+            Jogo jogoBuscado = _context.Jogos.Find(id);
+            // Remove o livro que foi buscado
+            _context.Jogos.Remove(jogoBuscado);
+            // Salva as alterações
             _context.SaveChanges();
         }
     }
