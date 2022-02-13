@@ -33,5 +33,13 @@ namespace SenaiLibrary.WebApi.Repositories
             // Salva (persistir) as informações para serem gravadas no banco de dados
             _context.SaveChanges();
         }
+
+        // busca as informações de um jogo por id
+        public Jogo BuscarPorId(int id)
+        {
+            // SELECT Id, TituloDoJogo, LojaDisponivel, Disponivel
+            // FROM Jogos WHERE Id = $idRecebido
+            return _context.Jogos.Find(id);
+        }
     }
 }
