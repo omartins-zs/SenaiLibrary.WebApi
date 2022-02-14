@@ -121,6 +121,7 @@ namespace SenaiLibrary.WebApi.Controllers
             }
             catch (Exception e)
             {
+                return BadRequest();
                 throw new Exception(e.Message);
             }
         }
