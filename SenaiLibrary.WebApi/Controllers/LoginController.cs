@@ -70,14 +70,14 @@ namespace SenaiLibrary.WebApi.Controllers
 
             // Define a chave de acesso ao token
             var key = new
-            SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("chapterchave-autenticacao"));
+            SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("SenaiLibrary-chave-autenticacao"));
             // Define as credenciais do token
             var creds = new SigningCredentials(key,
             SecurityAlgorithms.HmacSha256);
             // Gera o token
             var token = new JwtSecurityToken(
-            issuer: "chapter.webapi", // emissor do token
-            audience: "chapter.webapi", // destinatário do token
+            issuer: "SenaiLibrary.WebApi", // emissor do token
+            audience: "SenaiLibrary.WebApi", // destinatário do token
             claims: claims, // dados definidos acima
             expires: DateTime.Now.AddMinutes(30), // tempo de expiração
             signingCredentials: creds // credenciais do token

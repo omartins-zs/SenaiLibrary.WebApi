@@ -47,7 +47,7 @@ namespace SenaiLibrary.WebApi.Repositories
         {
             // Busca o jogo por id
             Jogo jogoBuscado = _context.Jogos.Find(id);
-            // caso encontre o jogo, atualiza as informacoes
+            // caso encontre o livro, atualiza as informacoes
             if (jogoBuscado != null)
             {
                 // Atribui os novos valores
@@ -65,7 +65,6 @@ namespace SenaiLibrary.WebApi.Repositories
             _context.SaveChanges();
         }
 
-
         /// <summary>
         /// Deleta um Jogo existente a partir do id
         /// </summary>
@@ -78,6 +77,12 @@ namespace SenaiLibrary.WebApi.Repositories
             _context.Jogos.Remove(jogoBuscado);
             // Salva as alterações
             _context.SaveChanges();
+        }
+
+        //  Metodo de Login | 
+        public Jogador Login(string email, string senha)
+        {
+            return _context.Jogadores.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
     }
 }
