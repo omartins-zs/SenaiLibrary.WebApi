@@ -51,6 +51,10 @@ API de Biblioteca de Jogos
 | `POST ` | `/api/jogos`   | Adicionar um livro| `Dados do livro` | Nenhum |
 | `PUT` |`/api/jogos/{id}` | Atualizar os dados de um livro existente | `Dados do livro` | Nenhum |
 | `DELETE` | `/api/jogos/{id}` | Excluir um livro | `Nenhum` | Nenhum |
+| `POST` | `/api/login` | Criar um token | `Email e senha` | token |
+
+    
+
 
   
 </div>
