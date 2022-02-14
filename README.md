@@ -1,2 +1,2 @@
-# SenaiLibrary.WebApi
-API de Biblioteca de Jogos  |  Senai Material Digital
+# Senai Library Web Api
+API de Biblioteca de Jogos  
