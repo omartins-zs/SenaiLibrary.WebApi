@@ -28,6 +28,11 @@ namespace SenaiLibrary.WebApi
             // Adiciona os servicos necessarios para
             services.AddControllers();
 
+            // Se não existir uma instância na memória da aplicação, cria um novo Context
+            services.AddScoped<LibraryContext, LibraryContext>();
+
+            services.AddTransient<JogadorRepository, JogadorRepository>();
+
             services
               // Define a forma de autenticacao
               .AddAuthentication(options =>
@@ -35,6 +40,7 @@ namespace SenaiLibrary.WebApi
                    options.DefaultAuthenticateScheme = "JwtBearer";
                    options.DefaultChallengeScheme = "JwtBearer";
                })
+
                 // Define os parametros de validacaoo do token
                 .AddJwtBearer("JwtBearer", options =>
                 {
@@ -58,9 +64,6 @@ namespace SenaiLibrary.WebApi
                     };
                 });
 
-
-            // Se não existir uma instância na memória da aplicação, cria um novo Context
-            services.AddScoped<LibraryContext, LibraryContext>();
 
             // A cada solicitaçao uma nova instanciae criada
             services.AddTransient<JogoRepository, JogoRepository>();
