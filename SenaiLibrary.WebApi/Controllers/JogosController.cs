@@ -90,7 +90,7 @@ namespace SenaiLibrary.WebApi.Controllers
 
         // PUT /api/jogos/{id}
         [AllowAnonymous]
-        [HttpPut("{ id}")] // o id passado no PUT /api/jogos/1
+        [HttpPut("{id}")] // o id passado no PUT /api/jogos/1
         // recebe a informacao do jogo que deseja
         // atualizar no corpo da requisição
         public IActionResult Atualizar(int id, Jogo jogo)
