@@ -41,7 +41,7 @@ API de Biblioteca de Jogos
 
 <details>
   <summary>Explicação do `Summary`</summary>
-  
+  <br>
  
 `<summary>` marca deve ser usada para descrever um tipo ou um membro de tipo
  
