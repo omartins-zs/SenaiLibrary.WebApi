@@ -8,7 +8,7 @@ API de Biblioteca de Jogos
   <summary>Adicionar + Funcionalidades Com a Tabela Jogadores</summary>
  
 
-- [ ] Criando Repositorio de Jogador
+- [x] Criando Repositorio de Jogador
 
 - [ ] Criar Controller de Jogador
 
