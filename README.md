@@ -61,7 +61,17 @@ API de Biblioteca de Jogos
   
    <cite align="center">`http://localhost:5000`</cite>
   
+  
+<p align="center">
+  <p align="center">⚡ Database</p>
 
+
+  <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white"/>
+
+</p> 
+<br/>
+
+  
 
 | Método| Endpoint | Descrição |Corpo da solicitação| Corpo da resposta|
 | :---------- | :--------- | :---------------------------------- | :--------- | :---------------------------------- |
